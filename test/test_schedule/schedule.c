@@ -236,27 +236,27 @@ void test_preempt_priority_mix(void)
 int main (void)
 {
     UNITY_BEGIN();
-    // RUN_TEST(test_priority_inversion);
+    RUN_TEST(test_priority_inversion);
 
-    // RUN_TEST(test_coop_same_priority_busy);
-    // RUN_TEST(test_coop_same_priority_yield);
+    RUN_TEST(test_coop_same_priority_busy);
+    RUN_TEST(test_coop_same_priority_yield);
 
-    // RUN_TEST(test_preempt_same_priority_busy);
-    // RUN_TEST(test_preempt_same_priority_yield);
+    RUN_TEST(test_preempt_same_priority_busy);
+    RUN_TEST(test_preempt_same_priority_yield);
 
-    // RUN_TEST(test_coop_priority_high_first_busy);
-    // RUN_TEST(test_coop_priority_low_first_busy);
+    RUN_TEST(test_coop_priority_high_first_busy);
+    RUN_TEST(test_coop_priority_low_first_busy);
    
-    // RUN_TEST(test_coop_priority_high_first_yield);
-    // RUN_TEST(test_coop_priority_low_first_yield);
+    RUN_TEST(test_coop_priority_high_first_yield);
+    RUN_TEST(test_coop_priority_low_first_yield);
     
-    // RUN_TEST(test_preempt_priority_high_first_busy);
-    // RUN_TEST(test_preempt_priority_low_first_busy);
+    RUN_TEST(test_preempt_priority_high_first_busy);
+    RUN_TEST(test_preempt_priority_low_first_busy);
 
-    // RUN_TEST(test_preempt_priority_high_first_yield);
-    // RUN_TEST(test_preempt_priority_low_first_yield);
+    RUN_TEST(test_preempt_priority_high_first_yield);
+    RUN_TEST(test_preempt_priority_low_first_yield);
 
-    // RUN_TEST(test_preempt_priority_mix);
+    RUN_TEST(test_preempt_priority_mix);
 
     return UNITY_END();
 }
