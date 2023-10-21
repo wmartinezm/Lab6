@@ -3,7 +3,8 @@
 #include <zephyr.h>
 #include <arch/cpu.h>
 
-void thread_analyzer(   k_thread_entry_t pri_thread_entry,
+void thread_analyzer(   uint32_t time_debounce,
+                        k_thread_entry_t pri_thread_entry,
                         void *pri_arg0, void *pri_arg1, void *pri_arg2,
                         int pri_prio,  k_timeout_t pri_delay,
                         uint64_t *pri_duration,

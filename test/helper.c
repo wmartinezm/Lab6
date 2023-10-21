@@ -4,7 +4,7 @@
 #include <unity.h>
 #include "helper.h"
 
-#define STACKSIZE 1024
+#define STACKSIZE 2000
 extern k_thread_runtime_stats_t threads_runtime_stats;
 K_THREAD_STACK_DEFINE(primary_stack, STACKSIZE);
 K_THREAD_STACK_DEFINE(secondary_stack, STACKSIZE);
@@ -21,7 +21,8 @@ void supervisor_entry(struct k_thread *primary, struct k_thread *secondary)
 char *primary_name = "primary";
 char *secondary_name = "secondary";
 
-void thread_analyzer(   k_thread_entry_t pri_thread_entry,
+void thread_analyzer(   uint32_t time_debounce,
+                        k_thread_entry_t pri_thread_entry,
                         void *pri_arg0, void *pri_arg1, void *pri_arg2,
                         int pri_prio,  k_timeout_t pri_delay,
                         uint64_t *pri_duration,
@@ -49,8 +50,8 @@ void thread_analyzer(   k_thread_entry_t pri_thread_entry,
                     NULL,
                     supervisor_prio,
                     0,
-                    K_MSEC(5000));
-    printk("create primary\n");
+                    K_MSEC(time_debounce));
+    printk("\tcreate primary\n");
     k_thread_create(&primary_thread,
                     primary_stack,
                     STACKSIZE,
@@ -61,7 +62,7 @@ void thread_analyzer(   k_thread_entry_t pri_thread_entry,
                     pri_prio,
                     0,
                     pri_delay);
-    printk("create secondary\n");
+    printk("\tcreate secondary\n");
     k_thread_create(&secondary_thread,
                     secondary_stack,
                     STACKSIZE,
@@ -73,7 +74,7 @@ void thread_analyzer(   k_thread_entry_t pri_thread_entry,
                     0,
                     sec_delay);
     k_thread_join(&super_thread, K_MSEC(5500));
-    printk("supervisor joined\n");
+    printk("\tsupervisor joined\n");
 
     k_thread_runtime_stats_get(&primary_thread, &pri_stats);
     k_thread_runtime_stats_get(&secondary_thread, &sec_stats);
@@ -85,7 +86,7 @@ void thread_analyzer(   k_thread_entry_t pri_thread_entry,
     end = timing_cycles_to_ns(end_stats.execution_cycles) / 1000;
     elapsed = end - start;
 
-    printk("primary %lld secondary %lld start %lld end %lld elapsed %lld (us)\n",
+    printk("primary: %lld\tsecondary: %lld\tstart: %lld\tend: %lld\t elapsed: %lld (us)\n",
            primary, secondary, start, end, elapsed);
 
     *pri_duration = primary;
