@@ -129,12 +129,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Activity 0 We fixed the bug in the code and figured out how the code works. the output is printing from main and from the other thread.
-- [x] Activity 1 We refactored the code in activity 0 to protect the critical sections (the counter and printing).
-- [x] Activity 2 we wrote the functions test_semaphore_unlocked() and test_semaphore_locked().
-- [x] Activity 3 Ashton removed it.
-- [x] Activity 4 created the lock and test it with  test_semaphore_deadlock().
-- [ ] Activity 5
+- [x] Activity 0 
+- [x] Activity 1 
+- [x] Activity 2 
+
 
 See the [open issues](https://github.com/ctapiero/lab6/issues) for a full list of proposed features (and known issues).
 
