@@ -9,6 +9,7 @@
 -->
 
 
+<!--  -->
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -129,10 +130,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Activity 0 
-- [x] Activity 1 
-- [x] Activity 2 
-
+- [x] Activity 0
+- [x] Activity 1
+- [x] Activity 2
 
 See the [open issues](https://github.com/ctapiero/lab6/issues) for a full list of proposed features (and known issues).
 
